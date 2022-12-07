@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Ingreso de Productos | Feria Virtual</title>
+  <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+  <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+  <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+  <div class="header-right">
+    {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+    {% else %}
+    <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+    {% endif %}
+    <a href="{% url 'contacto' %}">Contacto</a>
+    <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="damn">
+        <h1>Ingreso de Stock de Productos</h1>
+        <form action="" method="POST">
+          {% csrf_token %}
+          <label for="user">Producto disponible para la venta:</label>
+          <select name="proddisp" id="proddisp">
+            <option value ="">Seleccionar</option>
+            {% for c in listar_productos %}
+            <option value="{{ c.0 }}">{{ c.1 }}</option>
+            {% endfor %}
+          </select><br><br>
+          <label for="user">Estado de producto:</label>
+          <select name="estadoprod" id="estadoprod">
+            <option value ="">Seleccionar</option>
+            {% for c in listar_estado %}
+            <option value="{{ c.0 }}">{{ c.1 }}</option>
+            {% endfor %}
+          </select><br><br>
+          <label for="user">Categoria de Fruta:</label>
+          <select name="catferia" id="catferia">
+            <option value ="">Seleccionar</option>
+            {% for c in listar_cat_feria %}
+            <option value="{{ c.0 }}">{{ c.1 }}</option>
+            {% endfor %}
+          </select><br><br>
+          <label>Kilos/Cantidad Disponible:</label>
+          <input type="text" id="kiloscan" name="kiloscan"><br><br>
+          <label>Precio por Kilo/Unidad:</label>
+          <input type="text" id="preciokil" name="preciokil"><br><br>
+          
+          <input type="submit" value="Ingresar Producto" style="background-color:rgb(17, 173, 101);"></button>
+        </form>
+
+        {{mensaje}}
+       
+    
+        
+    
+        
+        
+        <br>
+        <button type="button">
+            
+                
+          <a href="{% url 'inicioproveedor' %}">Regresar</a>
+        </button>
+</body>
+</html>

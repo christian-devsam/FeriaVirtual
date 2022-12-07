@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Bienvenido, Transportista! | Feria Virtual</title>
+  <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+  <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+  <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+  <div class="header-right">
+    {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+    {% else %}
+    <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+    {% endif %}
+    <a href="{% url 'contacto' %}">Contacto</a>
+    <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="damn">
+        <h1>Bienvenido, Transportista!</h1>
+        <p>Revisa los pedidos disponible para ofertar en subastas y empieza a ganar!.</p>
+        <h1>Subastas</h1>
+        <p>Revisa las subastas de transporte disponible en este momento para empezar a participar!</p>
+        <button style="background-color: rgb(17, 173, 101);">
+              <a href="{% url 'paginasubastas' %}">Subastas</a>
+          </button> 
+          <br><br>
+          <h1>Listado Subastas Ganadas</h1>
+        <p>Revisa las subastas de transporte disponible en este momento para empezar a participar!</p>
+        <button style="background-color: rgb(17, 173, 101);">
+          <a href="{% url 'listadosubastasganadas' %}">Subastas</a>
+      </button> 
+      <h1>Listado Subastas Ingresadas</h1>
+        <p>Revisa las subastas en las que estas actualmente participando!</p>
+        <button style="background-color: rgb(17, 173, 101);">
+          <a href="{% url 'listadosubastasing' %}">Subastas</a>
+      </button>
+      <h1>Contratos</h1>
+        <p>Revisa tus contratos con nosotros, tanto como su duramiento como las condiciones de estos.</p>  
+        <button style="background-color: rgb(17, 173, 101);">
+              <a href="{% url 'transportecontrato' %}">Contratos</a>
+          </button> 
+          <br><br>
+          <p>Cerrar sesión.</p>
+          <button style="background-color: rgb(17, 173, 101);">
+              <a href="{% url 'sesionmain' %}">Regresar</a>
+          </button> 
+
+</body>
+</html>

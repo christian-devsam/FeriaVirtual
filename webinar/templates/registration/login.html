@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title> Inicio de Sesión | Feria Virtual</title>
+<link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+<link rel="stylesheet" href="{% static 'css/centro.css' %}">
+<script src="script.js"></script>
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo"> Feria Virtual </a>
+    <img src="{% static 'img/logo-feria.png' %}" alt="Girl in a jacket" width="50">
+    <div class="header-right">
+        {% if user.is_authenticated %}
+            <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        {% else %}
+        <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+        {%endif%}
+
+      <a href="{% url 'contacto' %}">Contacto</a>
+      <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="centero">
+        <h1>
+            Inicio de Sesión
+        </h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            
+
+        
+            <input type="submit" value="Guardar" style="background-color:rgb(17, 173, 101);"></input>
+            <br><br>
+            <label>Aún no eres cliente? Ingresa <a href="{% url 'creacionusuario' %}">aquí</a> para crear tu usuario Cliente Interno! (Solo residentes de Chile) </label><br> <br>
+            <label>No recuerdas tu contraseña? Rellena este formulario para  <a href="{% url 'cambiocontrasena' %}">cambiar tu contraseña!</a> </label>
+            <br><br>
+        </form>
+        {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'logout' %}">cerrar sesion</a>
+        </li>
+        {% else %}
+        <li>
+            <a href="{% url 'login' %}">cerrar sesion</a>
+        </li>
+        {% endif %}
+        <img src="{% static 'img/logo-feria.png' %}" alt="Girl in a jacket" width="250" height="250">
+        
+        
+
+</body>
+</html>

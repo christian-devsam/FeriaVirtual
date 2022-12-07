@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Postulación | Feria Virtual</title>
+    <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo">Feria Virtual</a>
+    <div class="header-right">
+      <a class="active" href="{% url 'contacto' %}">Contacto</a>
+      <a href="{% url 'cambiocontrasena' %}">Cambio de Contraseña</a>
+      <a href="{% url 'confirmacionpedido' %}">Confirmación de Pedido</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="center">
+        <h1>
+            Postulación
+        </h1>
+            <label for="user">Correo:</label>
+            <br><br>
+        <input type="text" id="user" name="user"><br><br>
+
+        <label for="user">RUT:</label>
+            <br><br>
+        <input type="text" id="user" name="user"><br><br>
+
+
+        
+        <label for="user">Nombres :</label>
+        <br><br>
+        <input type="text" id="user" name="user"><br><br>
+        
+        <label for="user">Apellidos :</label>
+        <br><br>
+        <input type="text" id="user" name="user"><br><br>
+        <label for="user">Tipo de usuario a postular:</label><br><br>
+        
+        <select name="tipos" id="tipos">
+            <option value="Transportista">Transportista</option>
+            <option value="Transportista">Cliente Externo</option>
+            <option value="saab">Proveedor.</option>
+               
+        </select><br><br>
+        
+        <label for="user">Numero de Telefono:</label><br><br>
+        <input type="text" id="user" name="user"><br><br>
+        <label for="user">Dirección:</label>
+            <br><br>
+        <input type="text" id="user" name="user"><br><br>
+        <label for="user">Región:</label>
+        <select name="tipos" id="tipos">
+            <option value="AricaPari">Arica y Parinacota</option>
+            <option value="Tarapaca">Tarapaca</option>
+            <option value="Aysen">Aysen</option>
+            <option value="Antofagasta">Antofagasta</option>
+            <option value="Atacama">Atacama</option>
+            <option value="Coquimbo">Coquimbo</option>
+            <option value="Valparaiso">Valparaiso</option>
+            <option value="Nuble">Ñuble</option>
+            <option value="O'Higgins">O'Higgins</option>
+            <option value="Maule">Maule</option>
+            <option value="Biobío">Biobío</option>
+            <option value="La Araucanía">La Araucanía</option>
+            <option value="Los Rios">Los Rios</option>
+            <option value="Los Lagos">Los Lagos</option>
+            <option value="Magallanes">Magallanes</option>
+            <option value="Metropolitana">Metropolitana</option>
+
+        </select>
+
+        <br><br>
+        <button style="background-color:rgb(17, 173, 101);">Postular</button>
+        <br><br>
+        
+        <label for="user">Muchas gracias por su cooperación.</label>
+        
+        <br><br>
+        
+    </div>
+
+</body>
+</html>

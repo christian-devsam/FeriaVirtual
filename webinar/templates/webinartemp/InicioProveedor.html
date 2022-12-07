@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Bienvenido, Proveedor! | Feria Virtual</title>
+    <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+    <div class="header-right">
+        {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+        {% else %}
+    <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+    {% endif %}
+      <a href="{% url 'contacto' %}">Contacto</a>
+      <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="damn">
+        <h1>Bienvenido, Proveedor!</h1>
+        <p>Revisa tus contratos con nosotros, maneja tus productos o revisa el seguimientos de estos, es tu decisión!.</p>
+        <h1>Contratos</h1>
+        <p>Revisa tus contratos con nosotros, tanto como su duramiento como las condiciones de estos.</p>  
+        <button>
+              <a href="{% url 'paginacontratos' %}">Contratos</a>
+          </button> 
+          <br><br>
+          <h1>Productos</h1>
+        <p>Añade productos para vender desde nuestra pagina!.</p>  
+          <button>
+              <a href="{% url 'paginaproductos' %}">Productos</a>
+          </button>
+          <br><br> 
+          <h1>Listado de Productos</h1>
+          <p>Revisa los productos que has ingresado.</p>  
+            <button>
+                <a href="{% url 'listadoproductosproductor' %}">Productos</a>
+            </button>
+            <br><br> 
+          
+        
+          
+          <p>Cerrar sesión.</p>
+          <button>
+              <a href="{% url 'logout' %}">Cerrar Sesión</a>
+          </button> 
+
+</body>
+</html>

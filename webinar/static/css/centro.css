@@ -1,0 +1,38 @@
+.center {
+    text-align: center;
+    border: 3px solid rgb(17, 173, 101);
+    border-radius: 25px;
+   
+  }
+
+  .centero {
+    text-align: center;
+    border: 3px solid rgb(17, 173, 101);
+    border-radius: 25px;
+    background: rgb(#d3f0c6)
+   
+  }
+  .damn {
+    text-align: left;
+    border: 3px solid rgb(17, 173, 101);
+    border-radius: 25px;
+    background: rgb(#d3f0c6);
+    padding: 3%;
+   
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+

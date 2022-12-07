@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Confirmación de Pedido | Feria Virtual</title>
+    <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+    <div class="header-right">
+
+      <a class="active" href="{% url 'contacto' %}">Contacto</a>
+      <a href="{% url 'cambiocontrasena' %}">Cambio Contraseña</a>
+      <a href="{% url 'postulacion' %}">Postulacion Usuario</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="center">
+        <h1>
+            Confirmación de Pedido
+        </h1>
+            <label for="user">Correo asociado a su cuenta:</label>
+            <br><br>
+        <input type="text" id="user" name="user"><br><br>
+        
+        <label for="user">Codigo de Pedido:</label>
+        <br><br>
+        <input type="text" id="user" name="user"><br><br>
+        <button style="background-color:rgb(17, 173, 101);">
+            <a href="{% url 'confirmacionpedido' %}">Confirmar Llegada de Pedido</a></button>
+        <br><br>
+        
+        <label for="user">Muchas gracias por su cooperación.</label>
+        
+        <br><br>
+        
+    </div>
+
+</body>
+</html>

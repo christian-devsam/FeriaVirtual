@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Pedidos | Feria Virtual</title>
+    <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+    <div class="header-right">
+      {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'aboutus' %}">Perfil</a>
+        <a href="{% url 'iniciointerno' %}">Pedidos</a>
+      {% else %}
+      
+        <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+          
+      {% endif %}
+
+      <a href="{% url 'contacto' %}">Contacto</a>
+      <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="damn">
+        <h1>Pedidos</h1>
+  <p>Crea y revisa tus pedidos! Cualquier duda, contactar con administración.</p>
+  
+  <h1>Crear pedidos</h1>
+  <p>Crea pedidos revisando el stock de frutas y verduras disponibles de nuestros proveedores!</p>
+  <form action="" method="POST">
+    {% csrf_token %}
+    
+    <input type="submit" value="Crear Pedido" style="background-color:rgb(17, 173, 101);"></button>
+
+  </form> 
+  <h1>Listado de pedidos</h1>
+  <p>Revisa tus pedidos actuales, tanto como su estado actual.</p>
+  <button style="background-color: rgb(17, 173, 101);">
+        <a href="{% url 'listadopedidoscliente' %}">Listar Pedidos</a>
+  </button> 
+        
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Contratos | Feria Virtual</title>
+  <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+  <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+  <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+  <div class="header-right">
+    {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+    {% else %}
+    <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+    {% endif %}
+    <a href="{% url 'contacto' %}">Contacto</a>
+    <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="damn">
+       <h1>Contratos</h1>
+  <p>Revisa tus contratos! Cualquier duda, contactar con administración.</p>
+  
+  <table>
+    <tr>
+      <th>Contrato</th>
+      <th>Estado</th>
+      <th>Fecha de Creación</th>
+    </tr>
+    <tr>
+      <td>Cont. N°1</td>
+      <td>Vigente</td>
+      <td><a href="https://www.datocms-assets.com/17507/1606818132-contrato.png?fit=max&fm=webp&q=60&w=736">Revisar contrato!</a></td>
+    </tr>
+    <tr>
+      <td>Cont. N°2</td>
+      <td>Vencido</td>
+      <td><a href="https://www.datocms-assets.com/17507/1606818132-contrato.png?fit=max&fm=webp&q=60&w=736">Revisar contrato!</a></td>
+    </tr>
+  </table> 
+  <br>
+  <button style="background-color: rgb(17, 173, 101);">
+      
+          
+    <a href="{% url 'inicioproveedor' %}">Regresar</a>
+  </button>
+        
+
+</body>
+</html>

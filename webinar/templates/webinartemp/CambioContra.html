@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Cambio de Contraseña | Feria Virtual</title>
+    <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+    <div class="header-right">
+      <a class="active" href="{% url 'contacto' %}">Contacto</a>
+      <a href="{% url 'confirmacionpedido' %}">Confirmación Pedido</a>
+      <a href="{% url 'postulacion' %}">Postulación Usuario</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="center">
+        <h1>
+            Cambio de Contraseña
+        </h1>
+            <label for="user">Correo asociado a su cuenta:</label>
+            <br><br>
+        <input type="text" id="user" name="user"><br><br>
+        
+        <label for="user">Nombre de Usuario:</label>
+        <br><br>
+        <input type="text" id="user" name="user"><br><br>
+        <label for="user">Contraseña previa:</label>
+        <br><br>
+        <input type="text" id="user" name="user"><br><br>
+        <button style="background-color:rgb(17, 173, 101);">
+            <a href="{% url 'cambiocontrasena' %}">Solicitar Cambio de Contraseña</a></button>
+        <br><br>
+        
+        <label for="user">Después de rellenar el formulario con los datos correctos, el administrador le dará una nueva contraseña.</label>
+        
+        <br><br>
+        
+    </div>
+
+</body>
+</html>

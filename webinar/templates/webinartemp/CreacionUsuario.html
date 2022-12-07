@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Registro de Usuario | Feria Virtual</title>
+    <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+    <div class="header-right">
+      {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'aboutus' %}">Perfil</a>
+        <a href="{% url 'iniciointerno' %}">Pedidos</a>
+      {% else %}
+      
+        <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+          
+      {% endif %}
+
+      <a href="{% url 'contacto' %}">Contacto</a>
+      <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+
+
+<body>
+    <br>
+    <div class="centero">
+        <h1>
+            Creación de Usuario
+        </h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="RUT">RUT:</label>
+        <input type="text" id="ruti" name="ruti" placeholder="Ejemplo: 20278421-5" text-align="center" required minlength="8" maxlength="9"><br><br>
+        <label for="nombre">Nombres:</label>
+        <input type="text" id="nombree" name="nombree" placeholder="Tus Nombres" required><br><br>
+        <label for="apellido">Apellidos:</label>
+        <input type="text" id="apellidop" name="apellidop" placeholder="Tus Apellidos" required><br><br>
+        <label for="user">Dirección:</label>
+        <input type="text" id="direcciom" name="direcciom" placeholder="Dirección Actual" required><br><br>
+        <label for="contra">Telefono:</label>
+        <input type="text" id="telefonos" name="telefonos" placeholder="Numero Telefonico" required ><br><br>
+        <label for="contra">Correo:</label>
+        <input type="email" id="correos" name="correos" placeholder="Correo Electronico" required><br><br>
+        <label for="user">Región:</label>
+            <select name="regions" id="regions" onchange = "cambiarProvincia() ">
+                <option value ="">Seleccionar</option>
+                {% for c in listar_regiones %}
+                <option value="{{ c.0 }}">{{ c.1 }}</option>
+                {% endfor %}
+            </select><br><br>
+        <label for="user">Provincia:</label>
+            <select name="provincias" id="provincias" onchange="cambiarComuna()">
+                <option value ="">Seleccionar</option>
+                {% for c in listar_provincias %}
+                <option value="{{ c.0 }}">{{ c.1 }}</option>
+                {% endfor %}
+            </select><br><br>
+        <label for="contra">Comuna:</label>
+            <select name="comunass" id="comunass" onchange = "obtenerComunaId()">
+                <option value ="">Seleccionar</option>
+                {% for c in listar_comunas %}
+                <option value="{{ c.0 }}">{{ c.1 }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+        <label for="user">Nombre de usuario:</label>
+        <input type="text" id="user" name="usernams" placeholder="Nickname" required><br><br>
+        <label for="contra">Contraseña:</label>
+        <input type="password" id="contra" name="contra" placeholder="Contraseña" required><br><br>
+        <label for="contra">Repetir contraseña:</label>
+        <input type="password" id="contra2" name="contra2" placeholder="Repetir Contraseña" required><br><br>
+        <input type="submit" value="Guardar" style="background-color:rgb(17, 173, 101);" ></button>
+        
+        <br><br>
+        {% if messages %}
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+
+    </form>
+
+    <script>
+        function cambiarProvincia() {
+            let regionid = document.getElementById("regions").value;
+            let url= "/provregiones/?region="+regionid;
+            fetch(url)
+            .then(function(result){
+                return result.text();
+            })
+            .then(function(result){
+                document.getElementById("provincias").innerHTML = result;
+            })
+        }
+    </script>
+
+    <script>
+        function cambiarComuna() {
+            let provinciaid = document.getElementById("provincias").value;
+            let url= "/provcomunas/?provincia="+provinciaid;
+            fetch(url)
+            .then(function(result){
+                return result.text();
+            })
+            .then(function(result){
+                document.getElementById("comunass").innerHTML = result;
+            })
+        }
+    </script>
+
+<script>
+    function obtenerComunaId() {
+        let comunaid = document.getElementById("comunass").value;
+        
+    }
+</script>
+    
+    {{mensaje}}
+
+</body>
+</html>

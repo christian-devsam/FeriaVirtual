@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title> Pagina No Encontrada! | Feria Virtual</title>
+    <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<body>
+    <div class="center">
+        <h2>Pareces estar perdido, porque esta pagina no existe!</h2>
+        <a href="{% url 'home' %}">Volver a la pagina principal</a>
+        <img src="{% static 'img/logo-feria.png' %}" alt="Feria" width="500" height="500"> 
+    </div>  
+</body>
+
+</body>
+</html>

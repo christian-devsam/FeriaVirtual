@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Subastas | Feria Virtual</title>
+  <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+  <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+  <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+  <div class="header-right">
+    {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+    {% else %}
+    <a class="active" href="{% url 'sesionmain' %}">Iniciar Sesión</a>
+    {% endif %}
+    <a href="{% url 'contacto' %}">Contacto</a>
+    <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="damn">
+        <h1>Subastas Disponibles</h1>
+  <p>Revisa tus pedidos! Cualquier duda, contactar con administración.</p>
+  
+  <table>
+    <tr>
+      <th>Contenido de Pedido</th>
+      <th>Fecha de Entrega</th>
+      <th>Fecha de Termino</th>
+      <th>Pagina de Participación</th>
+    </tr>
+    {% for s in listarsub %}
+    <tr>
+      <td>{{s.id_subasta | title }}</td>
+      <td>{{s.fecha_ingreso | title }}</td>
+      <td>{{s.fecha_termino | title }}</td>
+      <td><a href="{% url 'subastaadentro' %}">Participar en Subasta!</a></td>
+    </tr>
+    {% endfor %}
+  </table> 
+  <br>
+  <button style="background-color: rgb(17, 173, 101);">
+      
+          
+    <a href="{% url 'iniciotransportista' %}">Regresar</a>
+  </button>
+
+</body>
+</html>

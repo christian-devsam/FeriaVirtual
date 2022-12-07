@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title> Contacto | Feria Virtual</title>
+<link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+<link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+    <div class="header-right">
+      <a class="active" href="{% url 'cambiocontrasena' %}">Cambio Contraseña</a>
+      <a href="{% url 'confirmacionpedido' %}">Confirmación Pedido</a>
+      <a href="{% url 'postulacion' %}">Postulación Usuario</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="center">
+        <h1>
+            Contacto
+        </h1>
+            <label for="user">Correo:</label>
+        <input type="text" id="user" name="user"><br><br>
+        
+        <label for="user">Mensaje:</label>
+        <br><br>
+        <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+        <br><br>
+        <label for="user">Este formulario funciona como su unica interacción directa con los administradores.</label>
+        <br><br>
+        <label for="user">Por favor, asegurese que lo que desea NO se encuentre previamente disponible en el sitio.</label>
+        <br><br>
+        <label for="user">En la esquina superior derecha hay más opciones de contacto, que son más directas y expeditas.</label>
+        <br><br>
+        <button style="background-color:rgb(17, 173, 101);">
+            <a href="{% url 'contacto' %}">Enviar</a>  </button>
+        <br><br>
+    </div>
+
+</body>
+</html>

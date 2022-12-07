@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Perfil de Usuario | Feria Virtual</title>
+    <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+    <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+    <div class="header-right">
+      {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'iniciointerno' %}">Pedidos</a>
+      {% else %}
+      
+        <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+          
+      {% endif %}
+
+      <a href="{% url 'contacto' %}">Contacto</a>
+      <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+
+
+<body>
+    <br>
+    <div class="centero">
+        <h1>
+            Información de Usuario
+        </h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="RUT">RUT:</label>
+        <input type="text" id="ruti" name="ruti" disabled><br><br>
+        <label for="nombre">Nombres:</label>
+        <input type="text" id="nombree" name="nombree" ><br><br>
+        <label for="apellido">Apellidos:</label>
+        <input type="text" id="apellidop" name="apellidop"><br><br>
+        <label for="user">Dirección:</label>
+        <input type="text" id="direcciom" name="direcciom"><br><br>
+        <label for="contra">Telefono:</label>
+        <input type="text" id="telefonos" name="telefonos"><br><br>
+        <label for="contra">Correo:</label>
+        <input type="text" id="correos" name="correos"><br><br>
+        <label for="contra">Comuna:</label>
+        <input type="text" id="comunas" name="comunas"><br><br>
+        <label for="user">Nombre de usuario:</label>
+        <input type="text" id="user" name="usernams" disabled><br><br>
+        <label for="contra">Contraseña:</label>
+        <input type="password" id="contra" name="contra" disabled><br><br>
+        <label for="contra">Repetir contraseña:</label>
+        <input type="password" id="contra2" name="contra2" disabled><br><br>
+        <label for="user">Región:</label>
+            <select name="region" id="region">
+                <option value ="">Seleccionar</option>
+                {% for c in listar_regiones %}
+                <option value="{{ c.0 }}">{{ c.1 }}</option>
+                {% endfor %}
+            <br><br>
+        <input type="submit" value="Editar" style="background-color:rgb(17, 173, 101);"></button>
+        <input type="submit" value="Guardar" style="background-color:rgb(17, 173, 101);"></button>
+        
+        <br><br>
+
+    </form>
+    
+    {{mensaje}}
+
+</body>
+</html>

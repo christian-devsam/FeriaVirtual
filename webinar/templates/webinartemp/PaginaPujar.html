@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Puja de Subasta | Feria Virtual</title>
+  <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+  <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+<script src="script.js"></script>
+
+</head>
+<div class="header">
+  <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+  <div class="header-right">
+    {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+    {% else %}
+    <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+    {% endif %}
+    <a href="{% url 'contacto' %}">Contacto</a>
+    <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="damn">
+        <h1>Ofertar por: Subasta N°1!</h1>
+  <p>El mejor postor actualmente es de: 5100 CLP.</p>
+  <h1>APUESTA POR UN PRECIO MÁS BAJO PARA SER EL MEJOR POSTOR, Y GANAR LA SUBASTA!</h1>
+  <form action = "" method = "POST">
+    {% csrf_token %}
+    <label for="user">id_subasta:</label>
+            <select name="idsuba" id="idsuba">
+              <option value ="">Seleccionar Producto</option>
+              {% for c in list_idsub %}
+              <option value="{{ c.0 }}">{{ c.0 }}</option>
+              {% endfor %}
+            </select><br><br>
+    <label>Monto a pujar:</label>
+      <input type="text" id="pujat" name="pujat"><br><br>
+
+      <input type="submit" value="Ingresar Producto a Solicitud" style="background-color:rgb(17, 173, 101);"></button>
+  </form>
+          
+
+  <button style="background-color: rgb(17, 173, 101);">
+      
+          
+    <a href="{% url 'subastaadentro' %}">Regresar</a>
+  </button>
+</div>
+</body>
+</html>

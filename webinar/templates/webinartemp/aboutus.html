@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Sobre Nosotros | Feria Virtual</title>
+  <link rel="stylesheet" href="{% static 'css/topbanner.css' %}">
+  <link rel="stylesheet" href="{% static 'css/centro.css' %}">
+</head>
+<div class="header">
+  <a href="{% url 'home' %}" class="logo"> Feria Virtual</a>
+  <div class="header-right">
+    {% if user.is_authenticated %}
+        <a class="active" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+    {% else %}
+    <a class="active" href="{% url 'login' %}">Iniciar Sesión</a>
+    {% endif %}
+    <a href="{% url 'contacto' %}">Contacto</a>
+    <a href="{% url 'aboutus' %}">Sobre Nosotros</a>
+      <br></br>
+  </div>
+  <br></br>
+  
+  </div>
+<body>
+    <br>
+    <div class="centero">
+        <h1>Somos Maipo Grande!.</h1>
+  <p>Somos una empresa dispuesta a revolucionar los ambientes, dandole a nuestros clientes toda la seguridad y confianza en nuestra plataforma.</p>
+  <p>Nuestro nuevo proyecto, Feria Virtual, está enfocado en usted, el usuario que necesita comprar desde casa lo que normalmente, debería ir a buscar a las ferias libres.</p>
+  <p>Dicho esto, estamos ocupando todos nuestros recursos para darles la mejor experiencia posible en nuestra plataforma, tanto a clientes internos/externos como a proveedores.</p>
+  <p>Esperamos que nuestra plataforma sea de su gusto!.</p>
+  <p>- MAIPO GRANDE.</p>
+  <img src="{% static 'img/feria3.jpg' %}" alt="Jersey">
+  {% if messages %}
+    {% for message in messages %}
+        <div>{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #d3f0c6;
+}
+
+div.websitecolours {
+  background-color: #8ee267;
+  
+}
+
+.header {
+  overflow: hidden;
+  background-color: #8ee267;
+  padding: 20px 10px;
+  
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+  
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+
+}
+
+.header a:hover {
+  background-color: rgb(17, 173, 101);
+  color: black;
+}
+
+.header a.active {
+  background-color: rgb(17, 173, 101);
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.logito{
+  background-image: url();
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+
+  
+}
